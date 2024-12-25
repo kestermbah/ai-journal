@@ -1,0 +1,14 @@
+.Title{
+    color : white;
+    font-size: 2rem;
+    font-weight: bold; 
+    margin-bottom: 1rem;
+    background-color: black;
+}
+
+.Journal{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 1rem;
+}
