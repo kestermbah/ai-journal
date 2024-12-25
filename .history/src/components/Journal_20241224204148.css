@@ -1,0 +1,11 @@
+.Title{
+    color : white;
+    font-size: 2rem;
+    font-weight: bold; 
+    margin-bottom: 1rem;
+    background-color: black;
+}
+
+.Journal {
+    display: 70 vh; 
+}

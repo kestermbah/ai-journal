@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Outfit:wght@100..900&display=swap');
+body {
+    font-family: 'Instrument Sans', sans-serif;
+}
+.Title{
+    text-align: left;
+    color : white;
+    font-size: 2rem;
+    font-weight: bold; 
+    margin-bottom: 1rem;
+    padding: 10px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    margin-bottom: 1rem;
+    background: #040404;
+    font-family: 'Instrument Sans',;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    padding-left: 40px;
+}
+
+.Journal {
+    min-height: 70vh; 
+    border-radius: 15px; 
+    background: rgba(0, 0, 0, 0.87);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    overflow: visible;
+    font-family: 'Instrument Sans';
+}
+
+.Content{
+    font-family: 'Instrument Sans';
+    color: white;
+    text-align: left;
+}
