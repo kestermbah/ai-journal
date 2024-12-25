@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Outfit:wght@100..900&display=swap');
+
 body {
     font-family: 'Instrument Sans', sans-serif;
 }
@@ -21,6 +22,9 @@ body {
 }
 
 .Journal {
+    display: flex;
+    flex-direction: column; 
+    justify-content: flex-start;
     min-height: 70vh; 
     border-radius: 15px; 
     background: rgba(0, 0, 0, 0.87);
@@ -28,10 +32,32 @@ body {
     overflow: visible;
     font-family: 'Instrument Sans';
 }
-
+.Entry{
+        display: flex;
+        justify-content: flex-start; 
+        padding: 30px;
+        width: 100%; 
+    }
 .Content{
-    font-family: 'Instrument Sans';
-    color: white;
-    text-align: left;
-    padding: 30px;
+    width: 100%; 
+    background-color: transparent; 
+    outline: none; 
+    border: none; 
+    color: white; 
+    resize: none;
+    flex-grow: 1;
+    overflow: hidden; 
+}
+.Actions{
+    display: flex;
+    gap: 1rem;
+    margin-left: 40px; 
+    margin-bottom: 30px; 
+}
+.Button{
+    background: #040404; 
+    color: white; 
+    border: none; 
+    padding: 10px;
+    border-radius: 15px;
 }
