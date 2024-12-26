@@ -1,0 +1,10 @@
+
+
+
+
+POST http://localhost:3131/api/google
+Content-Type: application/json
+
+{
+ "userPrompt" : "I woke up at like 7, played some video games and went back to sleep and greeted my parents. I ate. I played video games again and i watched a movie, dont look up"
+}
