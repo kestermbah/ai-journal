@@ -1,0 +1,10 @@
+
+
+
+
+POST http://localhost:3131/api/submit
+Content-Type: application/json
+
+{
+  "userPrompt": "I am having a good day"
+}
