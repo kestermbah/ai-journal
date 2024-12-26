@@ -1,5 +1,8 @@
 const express = require("express");
 const app = express();
+const cors = require("cors");
+
+app.use(cors());
 require("dotenv").config();
 
 //openai api SETUP
@@ -12,14 +15,26 @@ const api = new OpenAI({
   baseURL,
 });
 
+//googleAI API SETUP
+const { GoogleGenerativeAI } = require("@google/generative-ai");
+const googleApiKey = process.env.GOOGLE_API_KEY;
+const genAI = new GoogleGenerativeAI(googleApiKey);
+const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+
 const PORT = 3131;
 
 app.use(express.json());
 
 app.get("/", (req, res) => {
-  res.send(`Your API key is: ${api_Key}`);
+  res.send("Server is up and ready");
 });
 
+app.post("/post", (req, res) => {
+  console.log("Connected to React");
+  res.status(200).json({ message: "Connected successfully!" });
+});
+
+// OpenAI API SUBMISSION
 app.post("/api/submit", async (req, res) => {
   try {
     const aiResponse = await api.chat.completions.create({
@@ -43,6 +58,33 @@ app.post("/api/submit", async (req, res) => {
     res.sendStatus(200);
   } catch (error) {
     console.error("Error calling OpenAI API:", error);
+    res.status(500).send({ error: "Failed to process request" });
+  }
+});
+
+// GoogleAI API SUBMISSION
+app.post("/api/google", async (req, res) => {
+  try {
+    const prompt =
+      "Emulate a therapist. Give a theraputic response to this that's not too long: " +
+      req.body.userPrompt;
+    const feeling =
+      "Guess the feeling of the user with one word: " + req.body.userPrompt;
+    const aiResponse = await model.generateContent(prompt);
+    const aiFeeling = await model.generateContent(feeling);
+
+    //Convert the response to text
+    const analysis = aiResponse.response.text();
+    const guessedFeeling = aiFeeling.response.text();
+
+    console.log("GoogleAI response:", analysis);
+    console.log("GoogleAI feeling:", guessedFeeling);
+    res.status(200).json({
+      analysis,
+      guessedFeeling,
+    });
+  } catch (error) {
+    console.error("Error calling GoogleAI API:", error);
     res.status(500).send({ error: "Failed to process request" });
   }
 });
